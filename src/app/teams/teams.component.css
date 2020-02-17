@@ -1,0 +1,11 @@
+.tbl-teams{
+    margin-top: 20px;
+}
+
+.tbl-teams td, .tbl-teams th {
+    padding-left: 20px;
+}
+
+.col-team-flag {
+    width: 80px;
+}

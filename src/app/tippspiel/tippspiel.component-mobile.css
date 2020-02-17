@@ -1,0 +1,286 @@
+@media only screen and (max-width: 1089px){
+/*************************************************
+* SORTIERUNG
+*************************************************/
+.div-sort{
+	font-size: 13px;
+	display: block;
+}
+
+.div-sort p{
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.div-sort span{
+	padding-right: 15px;
+    padding-left: 15px;
+    margin-right: 5px;
+	border-bottom: 3px solid #CCCCCC;
+}
+
+.div-sort .span-sort-active, .div-sort span:hover{
+	border-color: rgb(3, 113, 143);
+	cursor: pointer;
+}
+
+/*************************************************
+* ROUND/GROUP LISTS
+*************************************************/
+#round-cb, #group-cb{
+    width: calc(100% - 10px);
+    border: 1px solid black;
+    margin-top: 10px;
+    padding-left: 10px;
+    cursor: pointer;
+    height: 25px;
+    line-height: 25px;
+}
+
+.round-list{
+    display: none;
+}
+
+.cb-dropdown-icon{
+    width: 25px;
+    height: 25px;
+    float: right;
+    text-align: center;
+}
+
+.cb-dropdown-icon:after{
+    content: "\25BC";
+    font-size: 10px;
+}
+
+.cb-dropdown-icon:hover{
+    background-color: rgb(3, 113, 143);
+    color: white;
+}
+
+.mobile-round-list{
+    display: block;
+    z-index: 999999;
+    width: 100%;
+}
+
+.mobile-round-list ul{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    background-color: white;
+    
+}
+
+.mobile-round-list li{
+    width: calc(100% - 10px);
+    border: 1px solid black;
+    border-top: 0px;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 10px;
+    z-index: 999999;
+    cursor: pointer;
+}
+
+.mobile-round-list li:hover{
+    background-color: #CCCCCC;
+}
+
+/*************************************************
+* TABLE - DRAWS
+*************************************************/
+#draws-header{
+    display: none;
+}
+
+#standings-header{
+	border-spacing: 0px;
+	border: 1px solid #8b8788;
+	text-transform: uppercase;
+	font-size: 14px;
+	width: calc(100% - 2px);
+	line-height: 35px;
+	background-color: #03718f;
+	color: white;
+	font-weight: bold;
+    margin-top: 30px;
+    display: flex;
+}
+
+.draws-game{
+    border: 1px solid #AAAAAA;
+    margin-top: 20px;
+    padding: 5px;
+    background-color: #EEEEEE;
+    height: 90px;
+    text-align: center;
+}
+
+.standings-team{
+	border-spacing: 0px;
+	border: 1px solid #8b8788;
+	border-top: 0px;
+	text-transform: uppercase;
+	font-size: 14px;
+	width: calc(100% - 2px);
+    line-height: 35px;
+    display: flex;
+}
+
+.game-datetime{
+    border-bottom: 1px solid #AAAAAA;
+    margin-bottom: 10px;
+}
+
+.game-image-home{
+    margin-left: 10px;
+    float: left;
+}
+
+.game-image-away{
+    float: right; 
+    margin-right: 10px;
+}
+
+.game-team-home{
+    float: left;
+    margin-left: 10px;
+}
+
+.game-team-away{
+    float: right;
+    margin-right: 10px;
+}
+
+.game-result{
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+}
+
+.game-time, .game-date, .game-bez-normal{
+	display: none;
+}
+
+.game-tipp{
+	width: 110px;
+	text-align: center
+}
+
+.game-image{
+	width: 40px;
+	text-align: center;
+	vertical-align: middle;
+	height: 30px;
+}
+
+.game-tipp{
+    width: 110px;
+    margin: 0px auto 0px auto;  
+}
+
+.game-tipp1{
+    text-align: right;
+    float: left;
+    width: 50px;
+}
+
+.game-tipp2{
+    text-align: left;
+    float: right;
+    width: 50px;
+}
+
+.game-tipp1 input, .game-tipp2 input{
+	width: 40px;
+	text-align: center;
+	font-size: 18px;
+	padding: 0px;
+	height: 30px;
+}
+
+.game-tipp-doublepoint{
+    display: inline-block;
+    line-height: 30px;
+    width: 10px;
+    text-align: center;
+}
+
+#draws-header .game-tipp-points{
+	color: white;
+}
+
+.game-tipp-points{
+    width: 25px;
+    height: 25px;
+	text-align: center;
+	color: white;
+    font-weight: bold;
+    float: right;
+    position: relative;
+    right: 0px;
+    top: -95px;
+    border-radius: 15px;
+    background-color: green;
+}
+
+#draws-game-container div.draws-game:nth-child(even), #standings-container div.standings-team:nth-child(even){
+	background-color: rgba(139,135,136,.2)
+}
+
+/*************************************************
+* TABLE - STANDING
+*************************************************/
+.standing-rang{
+	width: 10%;
+	text-align: center;
+}
+
+.standing-image{
+    width: 10%;
+    min-width: 55px;
+	text-align: center;
+	vertical-align: middle;
+	height: 30px;
+}
+
+.standing-team{
+	text-align: left;
+	width: 40%;
+}
+
+.standing-games, .standing-goals, .standing-goals-against, .standing-goals-dif, .standing-points{
+	width: 6%;
+    text-align: center;
+    min-width: 30px;
+}
+
+/*************************************************
+* BUTTON
+*************************************************/
+#save-tipps{
+	width: 150px;	
+	float: right;
+}
+
+#div-save-tipps{
+	height: 30px;
+	margin-top: 15px;
+}
+
+#tipps-saved{
+	border: 1px solid #CCCCCC;
+	width: 200px;
+	height: 50px;
+	line-height: 50px;
+	border-radius: 5px;
+	vertical-align: middle;
+	text-align: center;
+	position: fixed;
+	bottom: 50px;
+	right: 20px;
+	background: #159628;
+	color: white;
+}
+}

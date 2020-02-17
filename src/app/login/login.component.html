@@ -1,0 +1,29 @@
+<h2>Anmelden</h2>
+
+<div *ngIf="authenticationService.isLogged()">
+    Du bist bereits angemeldet!
+</div>
+<form #myForm="ngForm" (ngSubmit)="onSubmit()" *ngIf="!authenticationService.isLogged()">
+    <table class='tbl-login'>
+        <tr>
+            <td class="col-login-label">Benutzername</td>
+            <td class="col-login-input"><input type='text' name='tUsername' required [(ngModel)]="username" /></td>
+        </tr>
+        <tr>
+            <td>Passwort</td>
+            <td><input type='password' name='tPassword' required [(ngModel)]="password" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type='submit' name='sLogin' value='Anmelden' /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td *ngIf="loginFalse" style="color:red; font-size: 12px;">Benutzername oder Passwort falsch!</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><a routerLink="/register">-> Registrieren</a></td>
+        </tr>
+    </table>
+</form>

@@ -1,0 +1,74 @@
+<h2>Rangliste</h2>
+<div id="private-container" *ngIf="authenticationService.isLogged()">
+    <div class="ranking">
+        <span class="ranking-group" [ngClass]="{'ranking-active': showMyGroupRanking}" (click)="setShowRankingGroup(true)">Meine Gruppe</span>
+        <span class="ranking-group" [ngClass]="{'ranking-active': !showMyGroupRanking}" (click)="setShowRankingGroup(false)">Top 10</span>
+    </div>
+    <div id="no-group" *ngIf="myGroup == null && !addUser && showMyGroupRanking && !newGroup && !showInvitations">
+        <div id="you-have-no-group">Du bist noch keiner Gruppe beigetreten!</div>
+        <div class="no-group-box" (click)="showNewGroup()">
+            <img src="../assets/images/controls/add.png" />
+            <h4>Neue Gruppe erstellen</h4>
+        </div>
+        <div class="no-group-box" (click)="showAllInvitations()">
+            <img src="../assets/images/controls/user.png" />
+            <h4>Du hast <span class="number-invitations">{{invitations.length}}</span> Einladungen</h4>
+        </div>
+    </div>
+    <div id="create-group" *ngIf="newGroup">
+        <div id="you-have-no-group">Neue Gruppe erstellen</div>
+        <input type="text" [(ngModel)]="group_name" placeholder="Gruppenname" />
+        <button (click)="createGroup()">Erstellen</button>
+        <div *ngIf="group_name_vergeben" style="color: red">Dieser Gruppenname ist bereits vergeben!</div>
+        <a (click)="back()">-> Zurück zur Rangliste</a>
+    </div>
+    <div id="invitations-header" *ngIf="showInvitations && showMyGroupRanking">
+        <span class="invitations-group">Einladungen</span>
+        <span class="invitations-accept"></span>
+    </div>
+    <div *ngIf="showInvitations && showMyGroupRanking">
+        <div class="invitations-row" *ngFor="let current of invitations">
+            <span class="invitations-group">{{current.group.bez}}</span>
+            <span class="invitations-accept"><a (click)="acceptInvitations(current.group_id)">Gruppe beitreten</a></span>
+        </div>
+        <a (click)="back()">-> Zurück zur Rangliste</a>
+    </div>
+    <div *ngIf="addUser && showMyGroupRanking">
+        <div class="invite-user">Person zur Gruppe einladen:</div>
+        <input type="text" [(ngModel)]="username_invite" placeholder="Benutzername" />
+        <button (click)="inviteUser()">Hinzufügen</button>
+        <div *ngIf="added_user">Benutzer "{{username_invite}}" wurde eingeladen</div>
+        <a (click)="back()">-> Zurück zur Rangliste</a>
+    </div>    
+    <div class="delete-my-group" *ngIf="deleteGroup && showMyGroupRanking">
+        <h2 *ngIf="myGroup.is_admin">Wollen Sie die Gruppe wirklich löschen?</h2>
+        <h2 *ngIf="!myGroup.is_admin">Wollen Sie die Gruppe wirklich verlassen?</h2>
+        <button (click)="yesDeleteGroup()">Ja</button>
+        <button (click)="back()">Nein</button>
+    </div>
+</div>
+
+<div id="ranking" *ngIf="(!addUser && !deleteGroup && myGroup != null) || !showMyGroupRanking">  
+    <div *ngIf="showMyGroupRanking" class="ranking-bez">
+        <div class="group-name">{{myGroup.bez}}</div>  
+        <div id="group-controls">        
+            <div class="delete-group" *ngIf="myGroup.is_admin" (click)="showDeleteGroup()"><img src="../assets/images/controls/delete.png" />Gruppe löschen</div>
+            <div class="delete-group" *ngIf="!myGroup.is_admin" (click)="showDeleteGroup()"><img src="../assets/images/controls/delete.png" />Gruppe verlassen</div>
+            <div class="add-user"  *ngIf="myGroup.is_admin" (click)="showAddUser()"><img src="../assets/images/controls/add.png" />Andere Personen einladen</div>
+        </div>
+    </div>
+    <div class="ranking-bez" *ngIf="!showMyGroupRanking">
+        <div class="group-name">Top 10</div>  
+    </div>
+    <div id="ranking-header">
+        <div class="ranking-rank">Rang</div>
+        <div class="ranking-name">Name</div>
+        <div class="ranking-points">Punkte</div>
+    </div>
+    <div class="ranking-row" *ngFor="let current of ranking">
+        <div class="ranking-rank" *ngIf="current.rank <= 3"><img src="../assets/images/rank/{{current.rank}}.png" /></div>
+        <div class="ranking-rank" *ngIf="current.rank > 3">{{current.rank}}</div>
+        <div class="ranking-name">{{current.username}}</div>
+        <div class="ranking-points">{{current.points}}</div>
+    </div>
+</div>

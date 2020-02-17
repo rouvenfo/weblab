@@ -1,0 +1,237 @@
+@media only screen and (min-width: 1090px){
+/*************************************************
+* SORTIERUNG
+*************************************************/
+.div-sort{
+	font-size: 13px;
+	display: block;
+}
+
+.div-sort p{
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.div-sort span{
+	padding-right: 15px;
+    padding-left: 15px;
+    margin-right: 5px;
+	border-bottom: 3px solid #CCCCCC;
+}
+
+.div-sort .span-sort-active, .div-sort span:hover{
+	border-color: rgb(3, 113, 143);
+	cursor: pointer;
+}
+
+/*************************************************
+* ROUND/GROUP LISTS
+*************************************************/
+#round-cb, #group-cb{
+	display: none;
+}
+
+.round-list{
+	width: 100%;
+	display: block;
+}
+
+.round-list ul{
+	padding: 0px;
+	width:100%;
+	display: table;
+	list-style: none;
+	line-height: 30px;
+	text-align: center;
+	border-color: gray;
+	border-style: solid;
+	border-width: 0px 1px 0px 0px;
+}
+
+.round-list li{
+	display: table-cell;
+	border-color: gray;
+	border-style: solid;
+	border-width: 1px 0px 1px 1px;
+    width: 10%;
+    cursor: pointer;
+}
+
+.round-list li:hover{
+	background-color: #DDDDDD;
+}
+
+.round-list .round-active, .round-list li.round-active:hover{
+    background-color: #03718f; 
+}
+
+.round-list a{
+	color: black;
+	display:block;
+	text-decoration:none;
+	width: 100%;
+}
+
+.round-list .round-active{
+    color: white;
+}
+
+
+/*************************************************
+* TABLE - DRAWS
+*************************************************/
+#draws-header, #standings-header{
+	border-spacing: 0px;
+	border: 1px solid #8b8788;
+	text-transform: uppercase;
+	font-size: 14px;
+	width: calc(100% - 2px);
+	line-height: 35px;
+	background-color: #03718f;
+	color: white;
+	font-weight: bold;
+	margin-top: 30px;
+}
+
+.draws-game, .standings-team{
+	border-spacing: 0px;
+	border: 1px solid #8b8788;
+	border-top: 0px;
+	text-transform: uppercase;
+	font-size: 14px;
+	width: calc(100% - 2px);
+	line-height: 35px;
+}
+
+.draws-game div, .standings-team div, #standings-header div, #draws-header div{
+	display: inline-block;
+}
+
+.game-date{
+	width: 10%;
+	text-align: center;
+}
+
+.game-time{
+	width: 10%;
+	text-align: center;
+}
+
+.draws-game .game-datetime, .game-bez-short, .standings-team .game-bez-short{
+	display: none;
+}
+
+.game-team{
+	width: 18%;
+}
+
+.draws-game .game-tipp{
+	display: inline;
+}
+
+.game-tipp, .game-result{
+	width: 11%;
+	text-align: center;
+}
+
+.game-image{
+	width: 7%;
+	text-align: center;
+	vertical-align: middle;
+	height: 30px;
+}
+
+.game-tipp1{
+	text-align: right;
+}
+
+.game-tipp2{
+	text-align: left;
+}
+
+.game-tipp1, .game-tipp2{
+	width: 5%;
+	vertical-align: middle;
+}
+
+.game-tipp1 input, .game-tipp2 input{
+	width: 40px;
+	text-align: center;
+	font-size: 18px;
+	padding: 0px;
+	height: 30px;
+}
+
+.game-tipp-doublepoint{
+	width: 1%;
+	text-align: center;
+}
+
+#draws-header .game-tipp-points{
+	color: white;
+}
+
+.game-tipp-points{
+	width: 8%;
+	text-align: center;
+	color: green;
+	font-weight: bold;
+}
+
+#draws-game-container div.draws-game:nth-child(even), #standings-container div.standings-team:nth-child(even){
+	background-color: rgba(139,135,136,.2)
+}
+
+/*************************************************
+* TABLE - STANDING
+*************************************************/
+.standing-rang{
+	width: 10%;
+	text-align: center;
+}
+
+.standing-image{
+	width: 10%;
+	text-align: center;
+	vertical-align: middle;
+	height: 30px;
+}
+
+.standing-team{
+	text-align: left;
+	width: 50%;
+}
+
+.standing-games, .standing-goals, .standing-goals-against, .standing-goals-dif, .standing-points{
+	width: 6%;
+	text-align: center;
+}
+
+/*************************************************
+* BUTTON
+*************************************************/
+#save-tipps{
+	width: 150px;	
+	float: right;
+}
+
+#div-save-tipps{
+	height: 30px;
+	margin-top: 15px;
+}
+
+#tipps-saved{
+	border: 1px solid #CCCCCC;
+	width: 200px;
+	height: 50px;
+	line-height: 50px;
+	border-radius: 5px;
+	vertical-align: middle;
+	text-align: center;
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	background: #159628;
+	color: white;
+}
+}

@@ -1,0 +1,10 @@
+<h2>Teams</h2>
+<table class='tbl-teams' *ngFor="let group of team_map  | keyvalue">
+    <tr>
+        <th colspan="2">{{group.key}}</th>
+    </tr>
+    <tr *ngFor="let team of team_map.get(group.key)">
+        <td class="col-team-flag"><div class="flagImage {{team.BEZ_KURZ}}"></div></td>
+        <td class="col-team-bez"><a routerLink="../team/{{team.TEAM_ID}}">{{team.BEZ}}</a></td>
+    </tr>
+</table>

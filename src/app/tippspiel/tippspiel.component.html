@@ -1,0 +1,89 @@
+<h2>Tippspiel</h2>
+<div class="div-sort">
+    <p>Sortieren:</p>
+    <span [ngClass]="{'span-sort-active': sort_group}" (click)="setSort(true)">Gruppen</span>
+    <span [ngClass]="{'span-sort-active': !sort_group}" (click)="setSort(false)">Spielplan</span>
+</div>
+<!-- ROUND -->
+<div id="round-cb" (click)="checkBoxShowRound()">{{current_round.BEZ}}<span class="cb-dropdown-icon"></span></div>
+<div class="round-list" [ngClass]="{'mobile-round-list': mobileRoundsShow}">
+    <ul>
+        <li *ngFor="let round of round_list" [ngClass]="{'round-active': current_round==round}" (click)="setRound(round)">
+            {{round.BEZ}}
+        </li>
+    </ul>
+</div>
+<!-- GROUP -->
+<div id="group-cb" *ngIf="sort_group" (click)="checkBoxShowGroup()">{{current_group.BEZ}}<span class="cb-dropdown-icon"></span></div>
+<div class="round-list" *ngIf="sort_group" [ngClass]="{'mobile-round-list': mobileGroupsShow}">
+    <ul>
+        <li *ngFor="let group of group_list" [ngClass]="{'round-active': current_group==group}" (click)="setGroup(group)">
+            {{group.BEZ}}
+        </li>
+	</ul>
+</div>
+
+<!-- DRAWS -->
+<div id="draws-header">
+    <div class="game-date">Datum</div>
+    <div class="game-time">Zeit</div>
+    <div class="game-image"></div>
+    <div class="game-team">Team 1</div>
+    <div class="game-image"></div>
+    <div class="game-team">Team 2</div>    
+    <div class="game-tipp" *ngIf="authenticationService.isLogged()">Tipp</div>
+    <div class="game-result">Resultat</div>
+    <div class="game-tipp-points" *ngIf="authenticationService.isLogged()">Punkte</div>
+</div>
+<div id="draws-game-container">
+    <div class="draws-game" *ngFor="let game of game_list">
+        <div class="game-date">{{game.date_day}}</div>
+        <div class="game-time">{{game.date_time}}</div>
+        <div class="game-datetime">{{game.date_day}} {{game.date_time}}</div>
+        <div class="game-image game-image-home"><div class='flagImage {{game.team_home.BEZ_KURZ}}'></div></div>
+        <div class="game-team game-team-home">
+            <a routerLink="/team/{{game.team_home.TEAM_ID}}" class="game-bez-normal">{{game.team_home.BEZ}}</a>
+            <a routerLink="/team/{{game.team_home.TEAM_ID}}" class="game-bez-short">{{game.team_home.BEZ_KURZ}}</a></div>
+        <div class="game-image game-image-away"><div class='flagImage {{game.team_away.BEZ_KURZ}}'></div></div>
+        <div class="game-team game-team-away">
+            <a routerLink="/team/{{game.team_away.TEAM_ID}}" class="game-bez-normal">{{game.team_away.BEZ}}</a>
+            <a routerLink="/team/{{game.team_away.TEAM_ID}}" class="game-bez-short">{{game.team_away.BEZ_KURZ}}</a></div>        
+        <div class="game-tipp">
+            <div class="game-tipp1" *ngIf="authenticationService.isLogged()"><input type="number" [(ngModel)]="game.userTipp.goals_team_home"/></div>
+            <div class="game-tipp-doublepoint" *ngIf="authenticationService.isLogged()">:</div>
+            <div class="game-tipp2" *ngIf="authenticationService.isLogged()"><input type="number" [(ngModel)]="game.userTipp.goals_team_away" /></div>
+        </div>
+        <div class="game-result">{{game.goals_team_first}}:{{game.goals_team_second}}</div>
+        <div class="game-tipp-points" *ngIf="authenticationService.isLogged() && game.userTipp.points != null">{{game.userTipp.points}}</div>
+    </div>
+</div>
+<div id="div-save-tipps">
+    <button id="save-tipps" *ngIf="authenticationService.isLogged()" (click)="submit()">Speichern</button>
+</div>
+
+<!-- STANDING -->
+<div *ngIf="sort_group && current_round.RUNDE_ID==1" id="standings-header">
+    <div class="standing-rang">Rang</div>
+    <div class="standing-image"></div>
+    <div class="standing-team">Team</div>
+    <div class="standing-games">S</div>
+    <div class="standing-goals">T+</div>
+    <div class="standing-goals-against">T-</div>
+    <div class="standing-goals-dif">TD</div>
+    <div class="standing-points">P</div>
+</div>
+<div *ngIf="sort_group && current_round.RUNDE_ID==1" id="standings-container">
+    <div *ngFor="let standing of standing_list" class="standings-team">
+        <div class="standing-rang">{{standing.rang}}</div>
+        <div class="standing-image"><div class='flagImage {{standing.team.BEZ_KURZ}}'></div></div>
+        <div class="standing-team game-bez-normal"><a routerLink="/team/{{standing.team.TEAM_ID}}">{{standing.team.BEZ}}</a></div>
+        <div class="standing-team game-bez-short"><a routerLink="/team/{{standing.team.TEAM_ID}}">{{standing.team.BEZ_KURZ}}</a></div>
+        <div class="standing-games">{{standing.spiele}}</div>
+        <div class="standing-goals">{{standing.tore_plus}}</div>
+        <div class="standing-goals-against">{{standing.tore_minus}}</div>
+        <div class="standing-goals-dif">{{tor_differenz(standing)}}</div>
+        <div class="standing-points">{{standing.punkte}}</div>
+    </div>
+</div>
+
+<div id="tipps-saved" *ngIf="tipps_saved">Tipps gespeichert</div>

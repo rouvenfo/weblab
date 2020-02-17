@@ -1,0 +1,43 @@
+<h2>Registrieren</h2>
+<h2>{{test}}</h2>
+<form method='post' #myForm="ngForm" (ngSubmit)="onSubmit()">
+    <table class='tbl-register'>
+        <tr>
+            <td style="width: 150px;">Benutzername</td>
+            <td style="width: 300px;"><input [(ngModel)]="formModel.username" [ngClass]="{'username-is-taken': !formModel.username_not_taken}"
+                type='text' name='tUsername' maxlength="32" minlength="2" required (input)="checkUsername()" /></td>
+            <td style="width: 250px"><p *ngIf="!formModel.username_not_taken" style="color: red;">Benutzername bereits vergeben!</p>
+            <input type="hidden" name="tUsername_taken" [(ngModel)]="formModel.username_not_taken" required /></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Passwort</td>
+            <td><input 
+                [(ngModel)]="formModel.password"
+                type='password' name='tPassword' maxlength="32" minlength="6" onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false" required /></td>
+        </tr>
+        <tr>
+            <td>Passwort bestätigen</td>
+            <td><input 
+                [(ngModel)]="formModel.passwordConfirm"
+                type='password' name='tPasswordConfirm' maxlength="32" minlength="6" onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false" required /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td> <re-captcha
+                [(ngModel)]="formModel.captcha"
+                name="captcha" required
+                siteKey="6Lf4UNYUAAAAAANjXaP7GIu1PibzvG7heaoUDGQm"
+              ></re-captcha></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type='submit' name='sRegister' [disabled]="!myForm.form.valid">Registrieren</button></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><p style="color:red;">{{error}}</p></td>
+
+        </tr>
+    </table>
+</form>

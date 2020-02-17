@@ -1,0 +1,111 @@
+@media only screen and (max-width: 1089px){
+/*************************************************
+* NAVIGATION
+*************************************************/
+nav{
+	background-color: white;
+	width: 100%;
+	border-bottom: 1px solid #CCCCCC;
+}
+
+nav #nav-div{
+    margin: 0px auto;
+}
+
+nav .nav-img-logo{
+	height: 60px;
+	margin: auto 50px auto 0px;
+	display: none;
+}
+
+nav li{
+	list-style-type: none;
+	line-height: 30px;
+	padding-left: 20px;
+	display: block;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+nav ul{
+	margin: 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+nav li:hover{
+	background-color: #EEEEEE;
+}
+
+nav li div{
+	display: inline;
+}
+
+nav .nav-item-active div{
+    border-bottom: 2px solid black;
+}
+
+.menu-icon-div{
+	display: flex;
+	width: 100%;
+	padding-bottom: 10px;
+}
+
+.menu-icon-div img{
+	padding: 10px 0px 0px 20px;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+}
+
+/*************************************************
+* LOGIN - BUTTON
+*************************************************/
+.login-container{
+	display: none;
+}
+
+.title-container-abmelden{
+	display: none;
+}
+
+#title-container-username{
+	display: none;
+}
+
+/*************************************************
+* CONTENT-WRAP
+*************************************************/
+.content-wrap{
+	margin: 0px;
+	padding-bottom: 40px;
+}
+
+/*************************************************
+* MAIN-CONTAINER
+*************************************************/
+.main-container{
+	width: calc(100% - 40px);
+	background-color: white;
+	padding: 20px 20px 20px 20px;
+	font-size: 14px;
+	line-height: 25px;
+}
+
+/*************************************************
+* FOOTER
+*************************************************/
+footer{
+	background-color: #EFEFEF;
+	line-height: 40px;
+	font-size: 12px;
+	vertical-align: middle;
+	color: #03718f;
+	bottom:0px;
+	width: 100%;
+	position: fixed;
+}
+
+footer .footer-copyright{
+	text-align: center;
+}
+}

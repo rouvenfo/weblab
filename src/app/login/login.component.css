@@ -1,0 +1,9 @@
+.tbl-login{
+    border: none;
+    text-transform: none;
+}
+
+.tbl-login td{
+    background: white;
+    border: none;
+}
