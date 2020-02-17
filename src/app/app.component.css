@@ -1,0 +1,131 @@
+@media only screen and (min-width: 1090px){
+/*************************************************
+* NAVIGATION
+*************************************************/
+nav{
+    height: 70px;
+	background-color: white;
+    width: 100%;
+}
+
+nav #nav-div{
+    width: 1028px;
+    height: 100%;
+    margin: 0px auto;
+    display: flex;
+}
+
+nav ul{
+    margin: 0px;
+    padding: 0px;
+}
+
+nav .nav-img-logo{
+	height: 60px;
+	margin: auto 50px auto 0px;
+}
+
+nav li{
+	list-style-type: none;
+	vertical-align: middle;
+	line-height: 70px;
+	padding-right: 40px;
+	padding-left: 40px;
+	display: inline-block;
+    cursor: pointer;
+    text-transform: uppercase;
+    height: 100%;
+}
+
+nav li:hover{
+	background-color: #EEEEEE;
+}
+
+nav li div{
+    display: inline;
+}
+
+nav .nav-item-active div{
+    border-bottom: 2px solid black;
+}
+
+.menu-icon-div{
+	display: none;
+}
+
+/*************************************************
+* LOGIN - BUTTON
+*************************************************/
+.login-container{
+	margin-left: 100px;
+	vertical-align: middle;
+	line-height: 70px;
+	color: black;
+	font-size: 13px;
+}
+
+.login-container button{
+    width: 150px;
+}
+
+.title-container-abmelden{
+	margin-left: 100px;
+	vertical-align: middle;
+	line-height: 70px;
+	color: black;
+	font-size: 13px;
+}
+
+#title-container-username{
+	color: rgb(3, 113, 143);
+	font-size: 14px;
+	padding-right: 50px;
+}
+
+/*************************************************
+* CONTENT-WRAP
+*************************************************/
+.content-wrap{
+	background-image: url('../assets/images/background.png'), linear-gradient(#0581a3, #029dc7);
+	background-size: 100%;
+	padding-top: 30px;
+    padding-bottom: 30px;
+    min-height: calc(100vh - 210px);
+}
+
+/*************************************************
+* MAIN-CONTAINER
+*************************************************/
+.main-container{
+	width: 1028px;
+	background-color: white;
+	box-shadow: 0px 2px 6px rgba(100,100,100, 0.3);
+	padding: 20px 30px 30px 30px;
+	margin: 0 auto;
+	font-size: 14px;
+	line-height: 25px;
+	min-height: calc(100vh - 270px);
+}
+
+/*************************************************
+* FOOTER
+*************************************************/
+footer{
+	background-color: #EFEFEF;
+	line-height: 40px;
+	font-size: 12px;
+	vertical-align: middle;
+	color: #03718f;
+	bottom:0px;
+	width: 100%;
+	position: static;
+}
+
+footer .footer-copyright{
+	text-align: center;
+}
+
+.only-mobile, nav .only-mobile{
+	display: none;
+}
+}

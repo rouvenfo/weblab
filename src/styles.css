@@ -1,1 +1,93 @@
-/* You can add global styles to this file, and also import other style files */
+/*************************************************
+* HTML/BODY
+*************************************************/
+html{
+    font-family: Helvetica;
+	min-height: 100%;
+}
+
+body{
+	margin: 0px;
+	color: #444;
+	text-align: left;
+	overflow-y: scroll;
+}
+
+header{
+	font-size: 20px;
+	background-color: #0581a3;
+	color: white;
+	font-weight: bold;
+	height: 40px;
+	line-height: 40px;
+	width: 100%;
+	text-align: center;
+	vertical-align: middle;
+}
+
+h2{
+	margin-top:0px;
+	margin-bottom: 15px;
+}
+
+a, a:visited{
+	color:#21759B;
+}
+
+p{
+	margin: 0px;
+}
+
+
+/*************************************************
+* CONTROLS
+*************************************************/
+input{
+	width: 250px;
+	height: 33px;
+	color: #555555;
+	border-radius: 4px;
+	border: 1px solid #AAA;
+	padding-left: 10px;
+}
+
+input[type="submit"], button{
+	width: 262px;
+	background-image: -moz-linear-gradient(center top , #F4F4F4, #E6E6E6);
+	cursor: pointer;
+	height: 35px;
+	color: #555555;
+	border-radius: 4px;
+	border: 1px solid #AAA;
+}
+
+input[type='number']{
+	-moz-appearance: textfield;
+}
+
+/*************************************************
+* TABLES
+*************************************************/
+table {
+	border-spacing: 0px;
+	border: 1px solid #8b8788;
+	text-transform: uppercase;
+	font-size: 14px;
+	width:100%;
+	vertical-align:middle;
+}
+
+table th{
+	background-color: #03718f;
+	color: white;
+	height: 30px;
+}
+
+table td{
+	border-top: 1px solid #AAA;
+	height: 38px;
+}
+
+table tr:nth-child(odd){
+	background-color: rgba(139,135,136,.2)
+}
